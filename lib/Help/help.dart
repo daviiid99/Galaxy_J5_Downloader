@@ -19,13 +19,14 @@ class HelpState extends State<Help>{
 });
 
   List<String> questions = ["What's LineageOS?", "Can this app update to latest android?", "Is this app compatible with my device?", "Is this app affiliated with LineageOS?"];
-  List<String> images = [];
+  List<String> images = ["assets/icon/banner_help_card_1.png", "assets/icon/banner_help_card_2.png", "assets/icon/banner_help_card_3.png", "assets/icon/banner_help_card_4.gif"];
   List<String> descriptions = ["LineageOS is a open-source, community built fork of the android open source project. LineageOS is maintained by enthusiast and all of incoming are from donors", "This app can update to the current android versions supported by me, these versions are displayed on home screen", "This app is compatible with the whole family of Galaxy J5 Devices, this includes 2015 and 2016 models", "This app is NOT affiliated with LineageOS Team and the Lineag logo and brand is property of the lineageOS team"];
   NavBar navigationBar = NavBar();
   final About about;
-  late Card createCard;
+  late Cards createCard;
 
   void initState(){
+
     super.initState();
   }
 
@@ -37,7 +38,8 @@ class HelpState extends State<Help>{
         itemBuilder: (context, index){
         return InkWell(
           onTap: (){
-
+            createCard = Cards(image: images[index], title: questions[index], description: descriptions[index]);
+            createCard.cardDialog(context);
           },
             child : Card(
           color: Colors.black,

@@ -28,7 +28,10 @@ class Cards extends StatelessWidget{
                 bottomRight: Radius.circular(24),
                 bottomLeft: Radius.circular(24),
               ),
+              child : ColoredBox(
+              color: Colors.transparent.withOpacity(0.5),
               child : SizedBox(
+                height: 400,
               child: Column(
                 children: [
                   Expanded(
@@ -38,17 +41,21 @@ class Cards extends StatelessWidget{
                           Image.asset(image),
 
                           // Title
-                          Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),),
+                          Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30), textAlign: TextAlign.center,),
+                          SizedBox(height: 50,),
 
                           // Description
-                          Text(description, style: TextStyle(color: Colors.white),),
+                          Text(description, style: TextStyle(color: Colors.white), textAlign: TextAlign.center,),
+                          SizedBox(height: 20,),
 
                           //Button
                           TextButton(
                             style: TextButton.styleFrom(
                               backgroundColor:  const Color.fromRGBO(22, 124, 128, 100),
                             ),
-                              onPressed: (){},
+                              onPressed: (){
+                              Navigator.pop(context);
+                              },
                               child: Text("Close", style: TextStyle(color: Colors.white),))
                         ],
                       ))
@@ -56,6 +63,7 @@ class Cards extends StatelessWidget{
                 ],
               ),
             )
+          )
             ),
           );
     }
